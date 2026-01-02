@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - 'v*.*.*'
+  workflow_call:
   workflow_dispatch:
     inputs:
       version:
@@ -34,6 +35,9 @@ jobs:
       - name: Run type checker
         run: bun run typecheck
 
+      - name: Run tests
+        run: bun run test
+
       - name: Build project
         run: bun run build
 
@@ -47,7 +51,6 @@ jobs:
     name: Publish to npm
     needs: build
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
 
     steps:
       - name: Checkout code
@@ -77,71 +80,3 @@ jobs:
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  create-release:
-    name: Create GitHub Release
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
-
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: dist
-          path: dist/
-
-      - name: Extract version from tag
-        id: version
-        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
-
-      - name: Generate release notes
-        id: release_notes
-        run: |
-          # Get the previous tag
-          PREV_TAG=$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1) 2>/dev/null || echo "")
-
-          if [ -z "$PREV_TAG" ]; then
-            echo "NOTES=Initial release" >> $GITHUB_OUTPUT
-          else
-            # Generate changelog from commits
-            NOTES=$(git log $PREV_TAG..HEAD --pretty=format:"- %s" --no-merges)
-            echo "NOTES<<EOF" >> $GITHUB_OUTPUT
-            echo "$NOTES" >> $GITHUB_OUTPUT
-            echo "EOF" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          name: Release v${{ steps.version.outputs.VERSION }}
-          body: |
-            ## Changes
-
-            ${{ steps.release_notes.outputs.NOTES }}
-
-            ## Installation
-
-            ```bash
-            npm install -g @jigonr/letta-switch@${{ steps.version.outputs.VERSION }}
-            ```
-
-            or
-
-            ```bash
-            bun add -g @jigonr/letta-switch@${{ steps.version.outputs.VERSION }}
-            ```
-          files: |
-            dist/**
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
