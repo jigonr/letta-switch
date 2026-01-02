@@ -1,0 +1,84 @@
+{
+  "name": "@jigonr/letta-switch",
+  "version": "0.1.0",
+  "description": "Comprehensive configuration manager for Letta CLI (agents + models + memory blocks)",
+  "type": "module",
+  "license": "MIT",
+  "author": "J.I. Gonzalez-Rojas",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jigonr/letta-switch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jigonr/letta-switch/issues"
+  },
+  "homepage": "https://github.com/jigonr/letta-switch#readme",
+  "keywords": [
+    "letta",
+    "cli",
+    "agent",
+    "switch",
+    "ai",
+    "profile",
+    "memory",
+    "model"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "bin": {
+    "letta-switch": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "test": "npm run build && node --test tests/integration/**/*.test.js",
+    "test:unit": "ava",
+    "test:watch": "ava --watch",
+    "test:coverage": "c8 ava",
+    "prepublishOnly": "bun run build && bun run lint && bun run test",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "chalk": "^5.4.1",
+    "commander": "^12.1.0",
+    "date-fns": "^4.1.0",
+    "ink": "^5.0.1",
+    "ink-select-input": "^6.0.0",
+    "ink-spinner": "^5.0.0",
+    "ora": "^8.1.1",
+    "react": "^18.3.1",
+    "tiny-invariant": "^1.3.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.5",
+    "@types/node": "^22.10.6",
+    "@types/react": "^18.3.18",
+    "ava": "^6.2.0",
+    "execa": "^9.5.2",
+    "husky": "^9.1.7",
+    "ink-testing-library": "^4.0.0",
+    "lint-staged": "^15.3.0",
+    "publint": "^0.2.11",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "biome check --write",
+      "biome format --write"
+    ]
+  }
+}
