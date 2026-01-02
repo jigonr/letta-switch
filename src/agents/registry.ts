@@ -2,59 +2,45 @@
  * Agent registry manager
  */
 
-import fs from 'node:fs/promises';
-import os from 'node:os';
-import path from 'node:path';
 import { LettaAPIClient } from '../api/client.js';
 import { type Agent, type Config, ConfigSchema } from '../config/schema.js';
+import { ConfigLoader } from '../core/config-loader.js';
+import {
+  CONFIG_VERSION,
+  DEFAULT_EXCLUDE_PATTERNS,
+  DEFAULT_MEMORY_BLOCKS,
+  DEFAULT_MODEL,
+  DEFAULT_MODELS,
+  DEFAULT_PROFILE_DESCRIPTION,
+} from '../core/constants.js';
 import { ErrorCode, LettaSwitchError } from '../utils/errors.js';
 import { logger } from '../utils/logger.js';
 import { convertLettaAgent, filterAgents } from './filter.js';
 
 export class AgentRegistry {
-  private configPath: string;
+  private readonly loader: ConfigLoader<Config>;
 
   constructor(configPath?: string) {
-    this.configPath =
-      configPath || path.join(os.homedir(), '.letta', 'letta-config.json');
+    this.loader = new ConfigLoader(ConfigSchema, configPath);
   }
 
   /**
    * Load configuration
    */
   async load(): Promise<Config> {
-    try {
-      const content = await fs.readFile(this.configPath, 'utf-8');
-      const data = JSON.parse(content);
-      const config = ConfigSchema.parse(data);
-      logger.debug(`Loaded config from ${this.configPath}`);
-      return config;
-    } catch (error) {
-      if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
-        logger.warn('Config file not found, creating default');
-        return this.createDefault();
-      }
-      throw new LettaSwitchError(
-        `Failed to load configuration: ${(error as Error).message}`,
-        ErrorCode.INVALID_CONFIG,
-        error,
-      );
+    const existing = await this.loader.loadOrNull();
+    if (existing) {
+      return existing;
     }
+    logger.warn('Config file not found, creating default');
+    return this.createDefault();
   }
 
   /**
    * Save configuration
    */
   async save(config: Config): Promise<void> {
-    const validated = ConfigSchema.parse(config);
-    const dir = path.dirname(this.configPath);
-    await fs.mkdir(dir, { recursive: true });
-    await fs.writeFile(
-      this.configPath,
-      JSON.stringify(validated, null, 2),
-      'utf-8',
-    );
-    logger.debug(`Config saved to ${this.configPath}`);
+    await this.loader.save(config);
   }
 
   /**
@@ -118,9 +104,9 @@ export class AgentRegistry {
     const config = await this.load();
 
     // Remove favorite from all agents
-    config.agents.forEach(agent => {
+    for (const agent of config.agents) {
       agent.favorite = false;
-    });
+    }
 
     // Set favorite
     const agent = config.agents.find(a => a.name === agentName);
@@ -154,30 +140,19 @@ export class AgentRegistry {
    */
   private async createDefault(): Promise<Config> {
     const defaultConfig: Config = {
-      version: '1.0',
+      version: CONFIG_VERSION,
       profiles: {
         default: {
           agent: 'co',
-          model: 'claude-pro-max/claude-opus-4-5',
-          memoryBlocks: ['human', 'persona'],
-          description: 'Default profile',
+          model: DEFAULT_MODEL,
+          memoryBlocks: [...DEFAULT_MEMORY_BLOCKS],
+          description: DEFAULT_PROFILE_DESCRIPTION,
         },
       },
       agents: [],
-      models: {
-        'claude-pro-max/claude-opus-4-5': {
-          tier: 'subscription',
-          speed: 'slow',
-        },
-        'claude-pro-max/claude-sonnet-4-5': {
-          tier: 'subscription',
-          speed: 'fast',
-        },
-        'anthropic/claude-opus-4-5': { tier: 'api', speed: 'slow' },
-        'z.ai/glm-4.7': { tier: 'api', speed: 'fast' },
-      },
+      models: { ...DEFAULT_MODELS },
       filters: {
-        excludePatterns: ['-sleeptime$', '^test-'],
+        excludePatterns: [...DEFAULT_EXCLUDE_PATTERNS],
       },
     };
 

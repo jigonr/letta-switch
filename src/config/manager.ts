@@ -2,9 +2,7 @@
  * Profile configuration manager
  */
 
-import fs from 'node:fs/promises';
-import os from 'node:os';
-import path from 'node:path';
+import { ConfigLoader } from '../core/config-loader.js';
 import { ErrorCode, LettaSwitchError } from '../utils/errors.js';
 import { logger } from '../utils/logger.js';
 import {
@@ -15,11 +13,10 @@ import {
 } from './schema.js';
 
 export class ProfileManager {
-  private configPath: string;
+  private readonly loader: ConfigLoader<Config>;
 
   constructor(configPath?: string) {
-    this.configPath =
-      configPath || path.join(os.homedir(), '.letta', 'letta-config.json');
+    this.loader = new ConfigLoader(ConfigSchema, configPath);
   }
 
   /**
@@ -27,11 +24,12 @@ export class ProfileManager {
    */
   async load(): Promise<Config> {
     try {
-      const content = await fs.readFile(this.configPath, 'utf-8');
-      const data = JSON.parse(content);
-      return ConfigSchema.parse(data);
+      return await this.loader.load();
     } catch (error) {
-      if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+      if (
+        error instanceof LettaSwitchError &&
+        error.code === ErrorCode.CONFIG_NOT_FOUND
+      ) {
         throw new LettaSwitchError(
           'Configuration not found. Run `letta-switch sync` first',
           ErrorCode.CONFIG_NOT_FOUND,
@@ -45,14 +43,7 @@ export class ProfileManager {
    * Save configuration
    */
   async save(config: Config): Promise<void> {
-    const validated = ConfigSchema.parse(config);
-    const dir = path.dirname(this.configPath);
-    await fs.mkdir(dir, { recursive: true });
-    await fs.writeFile(
-      this.configPath,
-      JSON.stringify(validated, null, 2),
-      'utf-8',
-    );
+    await this.loader.save(config);
   }
 
   /**
