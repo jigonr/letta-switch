@@ -1,6 +1,11 @@
 # letta-switch
 
-Comprehensive configuration manager for [Letta CLI](https://github.com/letta-ai/letta) - manage agents, models, and memory blocks.
+[![CI](https://github.com/jigonr/letta-switch/workflows/CI/badge.svg)](https://github.com/jigonr/letta-switch/actions)
+[![codecov](https://codecov.io/gh/jigonr/letta-switch/branch/main/graph/badge.svg)](https://codecov.io/gh/jigonr/letta-switch)
+[![npm version](https://badge.fury.io/js/%40jigonr%2Fletta-switch.svg)](https://www.npmjs.com/package/@jigonr/letta-switch)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> Comprehensive configuration manager for [Letta CLI](https://github.com/letta-ai/letta) - manage agents, models, and memory blocks.
 
 ## Features
 
