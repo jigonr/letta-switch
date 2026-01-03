@@ -3,7 +3,6 @@
 **Comprehensive configuration manager for Letta CLI.**
 
 [![CI](https://github.com/jigonr/letta-switch/workflows/CI/badge.svg)](https://github.com/jigonr/letta-switch/actions)
-[![GitHub Packages](https://img.shields.io/badge/npm-GitHub%20Packages-blue)](https://github.com/jigonr/letta-switch/packages)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
@@ -13,16 +12,15 @@
 - **🧠 Memory Blocks** - Configure custom memory block combinations
 - **📁 Project-Aware** - Auto-detect `.letta-switch.json` in projects
 - **🛡️ Type-Safe** - Built with TypeScript, Zod validation, and strict types
-- **🔄 Model Support** - Works with all Letta-supported models
 
 ## Quick Start
 
 ```bash
-# Configure npm for GitHub Packages
-echo "@jigonr:registry=https://npm.pkg.github.com" >> ~/.npmrc
-
 # Install with Bun (recommended)
 bun add -g @jigonr/letta-switch
+
+# Install with npm
+npm install -g @jigonr/letta-switch
 
 # Sync agents from Letta API
 letta-switch sync

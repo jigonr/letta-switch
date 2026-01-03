@@ -8,19 +8,11 @@
 
 ## Install with Bun (Recommended)
 
-First, configure npm to use GitHub Packages for the `@jigonr` scope:
-
-```bash
-echo "@jigonr:registry=https://npm.pkg.github.com" >> ~/.npmrc
-```
-
-Then install globally:
-
 ```bash
 bun add -g @jigonr/letta-switch
 ```
 
-## Alternative: Install with npm
+## Install with npm
 
 ```bash
 npm install -g @jigonr/letta-switch
@@ -49,5 +41,9 @@ letta auth
 ## Uninstall
 
 ```bash
+# With Bun
 bun remove -g @jigonr/letta-switch
+
+# With npm
+npm uninstall -g @jigonr/letta-switch
 ```
