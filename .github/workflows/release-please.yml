@@ -27,6 +27,9 @@ jobs:
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
