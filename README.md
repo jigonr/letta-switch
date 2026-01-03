@@ -34,6 +34,16 @@ letta-switch my-agent                # Launch an agent
 letta-switch --profile dev-profile   # Launch using a profile
 ```
 
+## Documentation
+
+Full documentation available at **[jigonzalez.com/letta-switch](https://jigonzalez.com/letta-switch/)**
+
+- [Installation Guide](https://jigonzalez.com/letta-switch/getting-started/installation/)
+- [Quick Start](https://jigonzalez.com/letta-switch/getting-started/quickstart/)
+- [Agents](https://jigonzalez.com/letta-switch/guide/agents/)
+- [Profiles](https://jigonzalez.com/letta-switch/guide/profiles/)
+- [CLI Reference](https://jigonzalez.com/letta-switch/reference/cli/)
+
 ## Development
 
 ```bash
