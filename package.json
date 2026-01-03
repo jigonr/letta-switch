@@ -83,5 +83,8 @@
       "biome check --write",
       "biome format --write"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }

@@ -1,8 +1,8 @@
----
-name: Publish to npm
+name: Publish to GitHub Packages
 
 permissions:
   contents: read
+  packages: write
 
 on:
   workflow_call:
@@ -44,9 +44,9 @@ jobs:
   publish:
     needs: build
     runs-on: ubuntu-latest
-    environment: release
     permissions:
-      id-token: write
+      contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -55,7 +55,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@jigonr'
 
       - name: Download build artifacts
         uses: actions/download-artifact@v4
@@ -63,5 +64,7 @@ jobs:
           name: dist
           path: dist/
 
-      - name: Publish to npm
-        run: npm publish --provenance --access public
+      - name: Publish to GitHub Packages
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
