@@ -46,8 +46,7 @@
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
     "prerelease": "bun run build && bun run lint && bun run test",
-    "release": "npm publish --access public",
-    "prepare": "husky install"
+    "release": "npm publish --access public"
   },
   "dependencies": {
     "axios": "^1.7.2",
