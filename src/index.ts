@@ -5,6 +5,7 @@
  * Entry point for the CLI
  */
 
+import { createRequire } from 'node:module';
 import chalk from 'chalk';
 import { Command } from 'commander';
 import { AgentRegistry } from './agents/registry.js';
@@ -15,6 +16,9 @@ import { ProfileManager } from './config/manager.js';
 import { LettaSwitchError } from './utils/errors.js';
 import { logger } from './utils/logger.js';
 
+const require = createRequire(import.meta.url);
+const { version } = require('../package.json') as { version: string };
+
 const program = new Command();
 
 program
@@ -22,7 +26,7 @@ program
   .description(
     'Comprehensive configuration manager for Letta CLI (agents + models + memory blocks)',
   )
-  .version('0.1.0');
+  .version(version);
 
 // Launch agent command (default action)
 program
