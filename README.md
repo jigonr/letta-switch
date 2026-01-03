@@ -4,9 +4,8 @@
 
 [![CI](https://github.com/jigonr/letta-switch/workflows/CI/badge.svg)](https://github.com/jigonr/letta-switch/actions)
 [![codecov](https://codecov.io/gh/jigonr/letta-switch/branch/main/graph/badge.svg)](https://codecov.io/gh/jigonr/letta-switch)
+[![Docs](https://img.shields.io/badge/docs-jigonzalez.com-blue)](https://jigonzalez.com/letta-switch/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-📚 **[Documentation](https://jigonzalez.com/letta-switch/)**
 
 ## Features
 
@@ -34,10 +33,6 @@ letta-switch list                    # List available agents
 letta-switch my-agent                # Launch an agent
 letta-switch --profile dev-profile   # Launch using a profile
 ```
-
-## Documentation
-
-See **[jigonzalez.com/letta-switch](https://jigonzalez.com/letta-switch/)** for full docs.
 
 ## Development
 
