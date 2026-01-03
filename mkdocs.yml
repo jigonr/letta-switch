@@ -1,0 +1,68 @@
+site_name: letta-switch
+site_url: https://jigonzalez.com/letta-switch/
+site_description: Comprehensive configuration manager for Letta CLI
+site_author: Jose Ignacio Gonzalez Rojas
+
+repo_name: jigonr/letta-switch
+repo_url: https://github.com/jigonr/letta-switch
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: deep-purple
+      accent: deep-purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep-purple
+      accent: deep-purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quickstart.md
+  - User Guide:
+      - Commands: guide/commands.md
+      - Profiles: guide/profiles.md
+      - Agents: guide/agents.md
+      - Memory Blocks: guide/memory.md
+      - Configuration: guide/configuration.md
+      - Troubleshooting: guide/troubleshooting.md
+  - Reference:
+      - CLI: reference/cli.md
+  - Contributing: contributing.md
+  - Changelog: changelog.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jigonr/letta-switch
