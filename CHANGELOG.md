@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1](https://github.com/jigonr/letta-switch/compare/letta-switch-v0.1.0...letta-switch-v0.1.1) (2026-01-03)
+
+
+### Features
+
+* configure publishing to GitHub Packages ([7d431fd](https://github.com/jigonr/letta-switch/commit/7d431fd4197b0c6f21e35983170832cbc5dd9aa0))
+
+
+### Bug Fixes
+
+* **ci:** remove invalid yaml document separator from release-please workflow ([993182b](https://github.com/jigonr/letta-switch/commit/993182b8bad6d586606ab34a8e4a3754b29d764b))
+
 ## [Unreleased]
 
 ## [0.1.0] - 2025-01-02
