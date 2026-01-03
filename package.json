@@ -7,7 +7,7 @@
   "author": "J.I. Gonzalez-Rojas",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jigonr/letta-switch.git"
+    "url": "git+https://github.com/jigonr/letta-switch.git"
   },
   "bugs": {
     "url": "https://github.com/jigonr/letta-switch/issues"
@@ -27,7 +27,7 @@
     "node": ">=18.0.0"
   },
   "bin": {
-    "letta-switch": "./dist/index.js"
+    "letta-switch": "dist/index.js"
   },
   "files": [
     "dist",
@@ -45,7 +45,8 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
-    "prepublishOnly": "bun run build && bun run lint && bun run test",
+    "prerelease": "bun run build && bun run lint && bun run test",
+    "release": "npm publish --access public",
     "prepare": "husky install"
   },
   "dependencies": {

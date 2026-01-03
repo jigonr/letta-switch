@@ -51,6 +51,9 @@ jobs:
     name: Publish to npm
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write  # Required for npm trusted publishing (OIDC)
 
     steps:
       - name: Checkout code
@@ -59,7 +62,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Setup Bun
@@ -76,7 +79,5 @@ jobs:
           name: dist
           path: dist/
 
-      - name: Publish to npm
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish to npm (Trusted Publishing)
+        run: npm publish --provenance --access public
