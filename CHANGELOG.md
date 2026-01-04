@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.4](https://github.com/jigonr/letta-switch/compare/letta-switch-v0.1.3...letta-switch-v0.1.4) (2026-01-04)
+
+
+### Features
+
+* **ci:** add Claude Code workflows and yamllint config ([a4eae04](https://github.com/jigonr/letta-switch/commit/a4eae04fd27fb382d721109987c961eede2dd314))
+
+
+### Bug Fixes
+
+* use 'ts' instead of 'typescript' for pre-commit types ([37e6cd5](https://github.com/jigonr/letta-switch/commit/37e6cd56ed918e2501950875edb820fe8f2f91ad))
+
 ## [0.1.3](https://github.com/jigonr/letta-switch/compare/letta-switch-v0.1.2...letta-switch-v0.1.3) (2026-01-03)
 
 
