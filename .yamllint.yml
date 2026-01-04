@@ -1,0 +1,19 @@
+---
+extends: default
+
+# Ignore Claude workflow files (managed by anthropics, can't modify)
+ignore:
+  - .github/workflows/claude.yml
+  - .github/workflows/claude-code-review.yml
+
+rules:
+  line-length:
+    max: 120
+  document-start: disable
+  truthy:
+    check-keys: false
+  comments:
+    min-spaces-from-content: 1
+  indentation:
+    spaces: 2
+    indent-sequences: consistent
