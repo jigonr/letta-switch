@@ -1,6 +1,6 @@
 # letta-switch
 
-> Comprehensive configuration manager for Letta CLI
+> Configuration manager for Letta CLI agents and memory blocks
 
 [![CI](https://github.com/jigonr/letta-switch/workflows/CI/badge.svg)](https://github.com/jigonr/letta-switch/actions)
 [![codecov](https://codecov.io/gh/jigonr/letta-switch/branch/main/graph/badge.svg)](https://codecov.io/gh/jigonr/letta-switch)
@@ -9,11 +9,10 @@
 
 ## Features
 
-- **🤖 Agent Management** - Sync, search, filter, and favorite agents
-- **📋 Profile System** - Save and reuse configurations
-- **🧠 Memory Blocks** - Configure custom memory block combinations
-- **📁 Project-Aware** - Auto-detect `.letta-switch.json` in projects
-- **⚡ Fast** - Built with Bun and TypeScript
+- **Agent Management** - Sync, search, filter, and favorite agents
+- **Profile System** - Save and reuse agent + memory configurations
+- **Memory Blocks** - Configure custom memory block combinations
+- **Project-Aware** - Auto-detect `.letta-switch.json` in projects
 
 ## Installation
 
@@ -29,16 +28,29 @@ npm install -g @jigonr/letta-switch
 
 ```bash
 letta-switch sync                    # Sync agents from Letta API
-letta-switch list                    # List available agents
+letta-switch agents                  # List available agents
 letta-switch my-agent                # Launch an agent
 letta-switch --profile dev-profile   # Launch using a profile
 ```
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `letta-switch [agent]` | Launch an agent (default) |
+| `letta-switch sync` | Sync agents from Letta API |
+| `letta-switch agents` | List all agents |
+| `letta-switch profiles` | List all profiles |
+| `letta-switch save <name>` | Save a new profile |
+| `letta-switch delete <name>` | Delete a profile |
+| `letta-switch favorite <agent>` | Set agent as favorite |
+| `letta-switch info <agent>` | Show agent details |
+| `letta-switch status` | Show current configuration |
 
 ## Documentation
 
 Full documentation available at **[jigonzalez.com/letta-switch](https://jigonzalez.com/letta-switch/)**
 
-- [Installation Guide](https://jigonzalez.com/letta-switch/getting-started/installation/)
 - [Quick Start](https://jigonzalez.com/letta-switch/getting-started/quickstart/)
 - [Agents](https://jigonzalez.com/letta-switch/guide/agents/)
 - [Profiles](https://jigonzalez.com/letta-switch/guide/profiles/)
@@ -55,8 +67,4 @@ bun run dev
 
 ## License
 
-MIT © [J.I. Gonzalez-Rojas](https://github.com/jigonr)
-
-## Related
-
-- [claude-switch](https://github.com/jigonr/claude-switch) - API provider switcher for Claude Code CLI
+MIT

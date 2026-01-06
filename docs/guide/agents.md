@@ -8,29 +8,64 @@ Fetch agents from the Letta API:
 letta-switch sync
 ```
 
-This caches agent information locally for faster access.
+This caches agent information locally in `~/.letta/letta-config.json` for faster access.
+
+To use a custom API URL:
+
+```bash
+letta-switch sync --api-url https://custom-letta.example.com
+```
 
 ## Listing Agents
 
 View all synced agents:
 
 ```bash
+letta-switch agents
+```
+
+Or use the alias:
+
+```bash
 letta-switch list
 ```
 
-### Filtering
+### Searching
 
-Filter by name:
-
-```bash
-letta-switch list --filter "dev"
-```
-
-Show only favorites:
+Search by name or description:
 
 ```bash
-letta-switch list --favorites
+letta-switch agents --search "dev"
 ```
+
+### Filtering by Tag
+
+```bash
+letta-switch agents --tag production
+```
+
+### JSON Output
+
+```bash
+letta-switch agents --json
+```
+
+## Agent Information
+
+View detailed information about an agent:
+
+```bash
+letta-switch info my-agent
+```
+
+Output includes:
+- Agent ID
+- Description
+- Created date
+- Tags
+- Favorite status
+- Last launched time
+- Available memory blocks
 
 ## Launching an Agent
 
@@ -44,6 +79,18 @@ With specific memory blocks:
 letta-switch my-agent --memory human,persona,project
 ```
 
+With init blocks:
+
+```bash
+letta-switch my-agent --init-blocks setup,context
+```
+
+With base tools:
+
+```bash
+letta-switch my-agent --base-tools web_search,calculator
+```
+
 ## Favoriting Agents
 
 Mark frequently-used agents as favorites:
@@ -52,18 +99,8 @@ Mark frequently-used agents as favorites:
 letta-switch favorite my-agent
 ```
 
-Toggle off:
+Favorite agents appear with a star marker in the agents list.
 
-```bash
-letta-switch favorite my-agent
-```
+## Agent Storage
 
-## Agent Cache
-
-Agent information is cached in `~/.config/letta-switch/agents.json`.
-
-Force refresh:
-
-```bash
-letta-switch sync --force
-```
+Agent information is stored in `~/.letta/letta-config.json`.

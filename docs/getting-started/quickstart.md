@@ -1,30 +1,38 @@
 # Quick Start
 
-## 1. Sync Agents
+## 1. Set Up Letta API Key
 
-First, sync your agents from the Letta API:
+letta-switch uses your existing Letta CLI configuration. If you haven't already, set up your API key:
+
+```bash
+letta config
+```
+
+## 2. Sync Agents
+
+Fetch your agents from the Letta API:
 
 ```bash
 letta-switch sync
 ```
 
-This fetches all agents associated with your account.
+This caches agent information locally for faster access.
 
-## 2. List Agents
+## 3. List Agents
 
 View available agents:
 
 ```bash
-letta-switch list
+letta-switch agents
 ```
 
-Filter by name:
+Search by name:
 
 ```bash
-letta-switch list --filter "dev"
+letta-switch agents --search "dev"
 ```
 
-## 3. Launch an Agent
+## 4. Launch an Agent
 
 ```bash
 letta-switch my-agent
@@ -36,15 +44,21 @@ With specific memory blocks:
 letta-switch my-agent --memory human,persona,project
 ```
 
-## 4. Save a Profile
+## 5. Save a Profile
 
-Save your current configuration as a reusable profile:
+Save your configuration for reuse:
+
+```bash
+letta-switch save dev-profile --agent my-agent --memory human,persona
+```
+
+Or save while launching:
 
 ```bash
 letta-switch my-agent --memory human,persona --save-as dev-profile
 ```
 
-## 5. Use a Profile
+## 6. Use a Profile
 
 Launch using a saved profile:
 
@@ -52,8 +66,17 @@ Launch using a saved profile:
 letta-switch --profile dev-profile
 ```
 
+## 7. Check Status
+
+View your current configuration:
+
+```bash
+letta-switch status
+```
+
 ## Next Steps
 
-- Learn about [Profiles](../guide/profiles.md)
-- Manage [Agents](../guide/agents.md)
-- Configure [Memory Blocks](../guide/memory.md)
+- [Agent Management](../guide/agents.md) - Sync, search, and favorite agents
+- [Profile Management](../guide/profiles.md) - Create and manage profiles
+- [Configuration](../guide/configuration.md) - Customize settings
+- [CLI Reference](../reference/cli.md) - Complete command reference
