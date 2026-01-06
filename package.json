@@ -1,6 +1,6 @@
 {
   "name": "@jigonr/letta-switch",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Comprehensive configuration manager for Letta CLI (agents + models + memory blocks)",
   "type": "module",
   "license": "MIT",
