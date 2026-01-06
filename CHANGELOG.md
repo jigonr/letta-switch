@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0](https://github.com/jigonr/letta-switch/compare/letta-switch-v0.1.4...letta-switch-v0.2.0) (2026-01-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* The --model CLI option and model field in profiles have been removed. Users should remove --model from commands and remove the model field from their profile configurations.
+
+### Features
+
+* remove --model CLI option ([7b9fb0a](https://github.com/jigonr/letta-switch/commit/7b9fb0a2f688e093fb11b6e2f5f88ab886da2984))
+
 ## [0.1.4](https://github.com/jigonr/letta-switch/compare/letta-switch-v0.1.3...letta-switch-v0.1.4) (2026-01-04)
 
 

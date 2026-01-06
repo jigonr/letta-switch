@@ -1,7 +1,7 @@
 {
   "name": "@jigonr/letta-switch",
   "version": "0.1.4",
-  "description": "Configuration manager for Letta CLI agents and memory blocks",
+  "description": "Comprehensive configuration manager for Letta CLI (agents + models + memory blocks)",
   "type": "module",
   "license": "MIT",
   "author": "J.I. Gonzalez-Rojas",
