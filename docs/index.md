@@ -8,7 +8,7 @@
 ## Features
 
 - **🤖 Agent Management** - Sync, search, filter, and favorite agents from Letta API
-- **📋 Profile System** - Save and reuse agent+model+memory configurations
+- **📋 Profile System** - Save and reuse agent+memory configurations
 - **🧠 Memory Blocks** - Configure custom memory block combinations
 - **📁 Project-Aware** - Auto-detect `.letta-switch.json` in projects
 - **🛡️ Type-Safe** - Built with TypeScript, Zod validation, and strict types
@@ -29,7 +29,7 @@ letta-switch sync
 letta-switch list
 
 # Launch an agent
-letta-switch my-agent --model claude-pro-max/claude-sonnet-4
+letta-switch my-agent
 ```
 
 ## Getting Started

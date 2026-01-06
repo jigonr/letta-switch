@@ -23,8 +23,7 @@ Create `.letta-switch.json` in your project root:
 ```json
 {
   "agent": "my-agent",
-  "model": "claude-pro-max/claude-sonnet-4",
-  "memory": ["human", "persona", "project"]
+  "memoryBlocks": ["human", "persona", "project"]
 }
 ```
 
@@ -34,7 +33,6 @@ Edit `~/.config/letta-switch/config.json`:
 
 ```json
 {
-  "defaultModel": "claude-pro-max/claude-sonnet-4",
   "defaultMemory": ["human", "persona"],
   "syncInterval": 3600
 }
@@ -44,6 +42,5 @@ Edit `~/.config/letta-switch/config.json`:
 
 | Option | Type | Description |
 |--------|------|-------------|
-| `defaultModel` | string | Default model for all agents |
 | `defaultMemory` | array | Default memory blocks |
 | `syncInterval` | number | Auto-sync interval in seconds (0 to disable) |

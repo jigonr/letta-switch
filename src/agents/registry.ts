@@ -9,8 +9,6 @@ import {
   CONFIG_VERSION,
   DEFAULT_EXCLUDE_PATTERNS,
   DEFAULT_MEMORY_BLOCKS,
-  DEFAULT_MODEL,
-  DEFAULT_MODELS,
   DEFAULT_PROFILE_DESCRIPTION,
 } from '../core/constants.js';
 import { ErrorCode, LettaSwitchError } from '../utils/errors.js';
@@ -144,13 +142,11 @@ export class AgentRegistry {
       profiles: {
         default: {
           agent: 'co',
-          model: DEFAULT_MODEL,
           memoryBlocks: [...DEFAULT_MEMORY_BLOCKS],
           description: DEFAULT_PROFILE_DESCRIPTION,
         },
       },
       agents: [],
-      models: { ...DEFAULT_MODELS },
       filters: {
         excludePatterns: [...DEFAULT_EXCLUDE_PATTERNS],
       },

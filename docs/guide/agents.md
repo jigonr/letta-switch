@@ -38,10 +38,10 @@ letta-switch list --favorites
 letta-switch <agent-name>
 ```
 
-With a specific model:
+With specific memory blocks:
 
 ```bash
-letta-switch my-agent --model anthropic/claude-3-opus
+letta-switch my-agent --memory human,persona,project
 ```
 
 ## Favoriting Agents

@@ -48,9 +48,6 @@ export const PROJECT_CONFIG_FILE_NAME = '.letta-switch.json';
 // Default Values
 // =============================================================================
 
-/** Default AI model for new profiles */
-export const DEFAULT_MODEL = 'claude-pro-max/claude-opus-4-5';
-
 /** Default memory blocks for new profiles */
 export const DEFAULT_MEMORY_BLOCKS: readonly string[] = ['human', 'persona'];
 
@@ -62,33 +59,6 @@ export const DEFAULT_PROFILE_NAME = 'default';
 
 /** Default profile description */
 export const DEFAULT_PROFILE_DESCRIPTION = 'Default profile';
-
-// =============================================================================
-// Model Definitions
-// =============================================================================
-
-/** Available model tiers */
-export type ModelTier = 'subscription' | 'api';
-
-/** Available model speeds */
-export type ModelSpeed = 'slow' | 'fast';
-
-/** Default model configurations */
-export const DEFAULT_MODELS = {
-  'claude-pro-max/claude-opus-4-5': {
-    tier: 'subscription' as ModelTier,
-    speed: 'slow' as ModelSpeed,
-  },
-  'claude-pro-max/claude-sonnet-4-5': {
-    tier: 'subscription' as ModelTier,
-    speed: 'fast' as ModelSpeed,
-  },
-  'anthropic/claude-opus-4-5': {
-    tier: 'api' as ModelTier,
-    speed: 'slow' as ModelSpeed,
-  },
-  'z.ai/glm-4.7': { tier: 'api' as ModelTier, speed: 'fast' as ModelSpeed },
-} as const;
 
 // =============================================================================
 // Agent Filtering

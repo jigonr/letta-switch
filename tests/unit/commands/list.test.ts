@@ -186,7 +186,6 @@ describe('List Command', () => {
 
       const allCalls = consoleSpy.mock.calls.map(call => call[0]).join('\n');
       expect(allCalls).toContain('Agent:');
-      expect(allCalls).toContain('Model:');
       expect(allCalls).toContain('Memory:');
     });
 

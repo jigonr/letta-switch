@@ -5,15 +5,6 @@
 import { z } from 'zod';
 
 /**
- * Provider name for models
- */
-export const ProviderNameSchema = z.enum([
-  'claude-pro-max',
-  'anthropic',
-  'z.ai',
-]);
-
-/**
  * Memory block schema
  */
 export const MemoryBlockSchema = z.string();
@@ -33,19 +24,10 @@ export const AgentSchema = z.object({
 });
 
 /**
- * Model configuration schema
- */
-export const ModelSchema = z.object({
-  tier: z.enum(['subscription', 'api']),
-  speed: z.enum(['slow', 'fast']),
-});
-
-/**
- * Profile schema - combination of agent + model + memory
+ * Profile schema - combination of agent + memory blocks
  */
 export const ProfileSchema = z.object({
   agent: z.string(),
-  model: z.string(),
   memoryBlocks: z.array(z.string()),
   description: z.string().optional(),
   initBlocks: z.array(z.string()).optional(),
@@ -60,7 +42,6 @@ export const ConfigSchema = z.object({
   currentProfile: z.string().optional(),
   profiles: z.record(z.string(), ProfileSchema),
   agents: z.array(AgentSchema),
-  models: z.record(z.string(), ModelSchema),
   filters: z.object({
     excludePatterns: z.array(z.string()),
   }),
@@ -73,7 +54,6 @@ export const ConfigSchema = z.object({
 export const ProjectConfigSchema = z.object({
   profile: z.string().optional(),
   agent: z.string().optional(),
-  model: z.string().optional(),
   memoryBlocks: z.array(z.string()).optional(),
   inherits: z.string().optional(),
 });
@@ -92,9 +72,7 @@ export const LettaAgentSchema = z.object({
 /**
  * Export inferred types
  */
-export type ProviderName = z.infer<typeof ProviderNameSchema>;
 export type Agent = z.infer<typeof AgentSchema>;
-export type Model = z.infer<typeof ModelSchema>;
 export type Profile = z.infer<typeof ProfileSchema>;
 export type Config = z.infer<typeof ConfigSchema>;
 export type ProjectConfig = z.infer<typeof ProjectConfigSchema>;

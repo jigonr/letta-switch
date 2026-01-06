@@ -6,13 +6,12 @@
 letta-switch [agent] [options]
 ```
 
-Launches an agent with optional model and memory configuration.
+Launches an agent with optional memory configuration.
 
 ### Options
 
 | Option | Description |
 |--------|-------------|
-| `--model`, `-m` | Model to use (e.g., `claude-pro-max/claude-sonnet-4`) |
 | `--memory` | Memory blocks to include (comma-separated) |
 | `--profile`, `-p` | Use a saved profile |
 | `--save-as` | Save configuration as a new profile |

@@ -24,7 +24,7 @@ const program = new Command();
 program
   .name('letta-switch')
   .description(
-    'Comprehensive configuration manager for Letta CLI (agents + models + memory blocks)',
+    'Comprehensive configuration manager for Letta CLI (agents + memory blocks)',
   )
   .version(version);
 
@@ -32,10 +32,6 @@ program
 program
   .argument('[agent]', 'Agent name or ID to launch')
   .option('--profile <name>', 'Use saved profile')
-  .option(
-    '--model <model>',
-    'Model to use (e.g., claude-pro-max/claude-opus-4-5)',
-  )
   .option('--memory <blocks>', 'Comma-separated memory blocks')
   .option('--init-blocks <blocks>', 'Comma-separated init blocks')
   .option('--base-tools <tools>', 'Comma-separated base tools')
@@ -52,7 +48,6 @@ program
           console.log(chalk.blue.bold('\nCurrent Profile:\n'));
           console.log(`  ${chalk.cyan(current.name)}`);
           console.log(`  Agent: ${current.profile.agent}`);
-          console.log(`  Model: ${current.profile.model}`);
           console.log(`  Memory: ${current.profile.memoryBlocks.join(', ')}\n`);
         } else {
           logger.info('No current profile set');
@@ -70,7 +65,6 @@ program
       // Parse options
       const launchOptions = {
         profile: options.profile,
-        model: options.model,
         memory: options.memory?.split(','),
         initBlocks: options.initBlocks?.split(','),
         baseTools: options.baseTools?.split(','),
@@ -141,7 +135,6 @@ program
   .command('save <name>')
   .description('Save current configuration as a profile')
   .requiredOption('--agent <name>', 'Agent name')
-  .requiredOption('--model <model>', 'Model')
   .requiredOption('--memory <blocks>', 'Comma-separated memory blocks')
   .option('--description <desc>', 'Profile description')
   .action(async (name, options) => {
@@ -149,7 +142,6 @@ program
       const profileManager = new ProfileManager();
       await profileManager.saveProfile(name, {
         agent: options.agent,
-        model: options.model,
         memoryBlocks: options.memory.split(','),
         description: options.description,
       });
@@ -272,7 +264,6 @@ program
       if (current) {
         console.log(`  Current profile: ${chalk.cyan(current.name)}`);
         console.log(`    Agent: ${current.profile.agent}`);
-        console.log(`    Model: ${current.profile.model}`);
         console.log(`    Memory: ${current.profile.memoryBlocks.join(', ')}`);
       } else {
         console.log('  No current profile set');

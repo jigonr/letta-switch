@@ -16,7 +16,6 @@ letta-switch [agent] [options]
 
 | Option | Short | Description |
 |--------|-------|-------------|
-| `--model` | `-m` | Model to use |
 | `--memory` | | Memory blocks (comma-separated) |
 | `--profile` | `-p` | Use saved profile |
 | `--save-as` | | Save as new profile |

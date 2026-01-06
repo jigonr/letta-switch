@@ -13,12 +13,10 @@ import {
   SETTINGS_FILE_NAME,
   LETTA_DIR_NAME,
   PROJECT_CONFIG_FILE_NAME,
-  DEFAULT_MODEL,
   DEFAULT_MEMORY_BLOCKS,
   DEFAULT_AGENT_NAME,
   DEFAULT_PROFILE_NAME,
   DEFAULT_PROFILE_DESCRIPTION,
-  DEFAULT_MODELS,
   DEFAULT_EXCLUDE_PATTERNS,
   API_KEY_REDACTION_PATTERN,
   API_KEY_REDACTED_TEXT,
@@ -67,11 +65,6 @@ describe('Configuration Constants', () => {
 });
 
 describe('Default Values', () => {
-  it('should have valid default model', () => {
-    expect(DEFAULT_MODEL).toBe('claude-pro-max/claude-opus-4-5');
-    expect(DEFAULT_MODEL).toMatch(/\//); // Should have provider/model format
-  });
-
   it('should have required memory blocks', () => {
     expect(DEFAULT_MEMORY_BLOCKS).toContain('human');
     expect(DEFAULT_MEMORY_BLOCKS).toContain('persona');
@@ -85,30 +78,6 @@ describe('Default Values', () => {
   it('should have default profile values', () => {
     expect(DEFAULT_PROFILE_NAME).toBe('default');
     expect(DEFAULT_PROFILE_DESCRIPTION).toBe('Default profile');
-  });
-});
-
-describe('Default Models Configuration', () => {
-  it('should have subscription models', () => {
-    expect(DEFAULT_MODELS['claude-pro-max/claude-opus-4-5']).toEqual({
-      tier: 'subscription',
-      speed: 'slow',
-    });
-    expect(DEFAULT_MODELS['claude-pro-max/claude-sonnet-4-5']).toEqual({
-      tier: 'subscription',
-      speed: 'fast',
-    });
-  });
-
-  it('should have API models', () => {
-    expect(DEFAULT_MODELS['anthropic/claude-opus-4-5']).toEqual({
-      tier: 'api',
-      speed: 'slow',
-    });
-    expect(DEFAULT_MODELS['z.ai/glm-4.7']).toEqual({
-      tier: 'api',
-      speed: 'fast',
-    });
   });
 });
 

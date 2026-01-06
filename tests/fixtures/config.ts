@@ -18,7 +18,6 @@ export const validConfig: Config = {
   profiles: {
     default: {
       agent: 'co',
-      model: 'claude-pro-max/claude-opus-4-5',
       memoryBlocks: ['human', 'persona'],
       description: 'Default profile',
     },
@@ -41,10 +40,6 @@ export const validConfig: Config = {
       favorite: false,
     },
   ],
-  models: {
-    'claude-pro-max/claude-opus-4-5': { tier: 'subscription', speed: 'slow' },
-    'anthropic/claude-3-5-sonnet': { tier: 'api', speed: 'fast' },
-  },
   filters: {
     excludePatterns: ['-sleeptime$', '^test-'],
   },
@@ -60,13 +55,11 @@ export const multiProfileConfig: Config = {
     default: validConfig.profiles.default,
     research: {
       agent: 'agent-research-456',
-      model: 'claude-pro-max/claude-opus-4-5',
       memoryBlocks: ['human', 'persona', 'research-docs'],
       description: 'Research profile',
     },
     coding: {
       agent: 'agent-coding-789',
-      model: 'anthropic/claude-3-5-sonnet',
       memoryBlocks: ['human', 'persona', 'code-standards'],
       description: 'Coding profile',
     },
@@ -78,7 +71,6 @@ export const multiProfileConfig: Config = {
  */
 export const validProfile: Profile = {
   agent: 'agent-test-123',
-  model: 'claude-pro-max/claude-opus-4-5',
   memoryBlocks: ['human', 'persona'],
   description: 'A valid test profile',
 };
@@ -137,7 +129,6 @@ export const invalidConfigs = {
     currentProfile: 'default',
     profiles: {},
     agents: [],
-    models: {},
     filters: { excludePatterns: [] },
   },
   wrongVersion: {
@@ -145,18 +136,16 @@ export const invalidConfigs = {
     currentProfile: 'default',
     profiles: {},
     agents: [],
-    models: {},
     filters: { excludePatterns: [] },
   },
   invalidProfile: {
     version: '1.0',
     profiles: {
       bad: {
-        agent: 'missing-model', // missing required fields
+        agent: 'missing-memoryBlocks', // missing required fields
       },
     },
     agents: [],
-    models: {},
     filters: { excludePatterns: [] },
   },
 };

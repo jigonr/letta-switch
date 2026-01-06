@@ -30,10 +30,10 @@ letta-switch list --filter "dev"
 letta-switch my-agent
 ```
 
-With a specific model:
+With specific memory blocks:
 
 ```bash
-letta-switch my-agent --model claude-pro-max/claude-sonnet-4
+letta-switch my-agent --memory human,persona,project
 ```
 
 ## 4. Save a Profile
@@ -41,7 +41,7 @@ letta-switch my-agent --model claude-pro-max/claude-sonnet-4
 Save your current configuration as a reusable profile:
 
 ```bash
-letta-switch my-agent --model claude-pro-max/claude-sonnet-4 --memory human,persona --save-as dev-profile
+letta-switch my-agent --memory human,persona --save-as dev-profile
 ```
 
 ## 5. Use a Profile

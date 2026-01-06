@@ -11,7 +11,6 @@ import { logger } from '../utils/logger.js';
 
 export interface LaunchOptions {
   profile?: string;
-  model?: string;
   memory?: string[];
   initBlocks?: string[];
   baseTools?: string[];
@@ -54,7 +53,6 @@ export async function launchAgent(
     // Build config from options or use defaults
     config = {
       agent: agent.name,
-      model: options.model || 'claude-pro-max/claude-opus-4-5',
       memoryBlocks: options.memory || ['human', 'persona'],
       initBlocks: options.initBlocks,
       baseTools: options.baseTools,
@@ -73,10 +71,6 @@ export async function launchAgent(
   // Build letta command
   const args = ['--agent', agent.id];
 
-  if (config.model) {
-    args.push('--model', config.model);
-  }
-
   if (config.initBlocks && config.initBlocks.length > 0) {
     args.push('--init-blocks', config.initBlocks.join(','));
   }
@@ -88,7 +82,6 @@ export async function launchAgent(
   // Log launch info
   logger.info(`Launching ${agent.name}...`);
   logger.info(`  Agent ID: ${agent.id}`);
-  logger.info(`  Model: ${config.model}`);
   logger.info(`  Memory: ${config.memoryBlocks.join(', ')}`);
 
   // Execute letta command
@@ -125,7 +118,6 @@ export async function launchProfile(profileName: string): Promise<void> {
   }
 
   await launchAgent(profile.agent, {
-    model: profile.model,
     memory: profile.memoryBlocks,
     initBlocks: profile.initBlocks,
     baseTools: profile.baseTools,

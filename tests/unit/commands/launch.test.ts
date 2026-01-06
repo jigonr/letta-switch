@@ -75,22 +75,6 @@ describe('Launch Command', () => {
       });
     });
 
-    it('should use specified model option', async () => {
-      const launchPromise = launchAgent('co', {
-        model: 'custom-model',
-      });
-
-      setImmediate(() => mockProcess.emit('exit', 0));
-
-      await launchPromise;
-
-      expect(mockSpawn).toHaveBeenCalledWith(
-        'letta',
-        expect.arrayContaining(['--model', 'custom-model']),
-        expect.anything(),
-      );
-    });
-
     it('should include init-blocks when specified', async () => {
       const launchPromise = launchAgent('co', {
         initBlocks: ['block1', 'block2'],
@@ -172,7 +156,7 @@ describe('Launch Command', () => {
         expect.stringContaining('Agent ID'),
       );
       expect(logger.info).toHaveBeenCalledWith(
-        expect.stringContaining('Model'),
+        expect.stringContaining('Memory'),
       );
     });
 

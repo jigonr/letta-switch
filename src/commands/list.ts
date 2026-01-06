@@ -94,7 +94,6 @@ export async function listProfiles(
 
     console.log(`  ${marker} ${displayName}`);
     console.log(`    Agent: ${profile.agent}`);
-    console.log(`    Model: ${profile.model}`);
     console.log(`    Memory: ${profile.memoryBlocks.join(', ')}`);
     if (profile.description) {
       console.log(`    ${chalk.gray(profile.description)}`);

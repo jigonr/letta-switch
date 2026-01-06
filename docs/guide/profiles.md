@@ -1,6 +1,6 @@
 # Profiles
 
-Profiles save agent+model+memory configurations for quick reuse.
+Profiles save agent+memory configurations for quick reuse.
 
 ## Creating a Profile
 
@@ -8,7 +8,6 @@ Save your current launch configuration:
 
 ```bash
 letta-switch my-agent \
-  --model claude-pro-max/claude-sonnet-4 \
   --memory human,persona,project \
   --save-as my-profile
 ```
@@ -50,8 +49,7 @@ Create a `.letta-switch.json` in your project root:
 ```json
 {
   "agent": "project-agent",
-  "model": "claude-pro-max/claude-sonnet-4",
-  "memory": ["human", "persona", "project"]
+  "memoryBlocks": ["human", "persona", "project"]
 }
 ```
 

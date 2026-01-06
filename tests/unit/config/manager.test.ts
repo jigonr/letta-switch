@@ -142,7 +142,6 @@ describe('ProfileManager', () => {
 
       const newProfile = {
         agent: 'agent-new',
-        model: 'new-model',
         memoryBlocks: ['human'],
         description: 'New profile',
       };

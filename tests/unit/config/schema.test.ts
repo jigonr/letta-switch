@@ -8,25 +8,11 @@ import {
   ConfigSchema,
   ProfileSchema,
   AgentSchema,
-  ModelSchema,
   ProjectConfigSchema,
   LettaAgentSchema,
-  ProviderNameSchema,
   MemoryBlockSchema,
 } from '../../../src/config/schema.js';
 import { validConfig, validProfile, validAgent, invalidConfigs } from '../../fixtures/config.js';
-
-describe('ProviderNameSchema', () => {
-  it('should accept valid provider names', () => {
-    expect(ProviderNameSchema.parse('claude-pro-max')).toBe('claude-pro-max');
-    expect(ProviderNameSchema.parse('anthropic')).toBe('anthropic');
-    expect(ProviderNameSchema.parse('z.ai')).toBe('z.ai');
-  });
-
-  it('should reject invalid provider names', () => {
-    expect(() => ProviderNameSchema.parse('invalid-provider')).toThrow(ZodError);
-  });
-});
 
 describe('MemoryBlockSchema', () => {
   it('should accept string memory blocks', () => {
@@ -75,49 +61,21 @@ describe('AgentSchema', () => {
   });
 });
 
-describe('ModelSchema', () => {
-  it('should validate model with correct tier and speed', () => {
-    const model = { tier: 'subscription', speed: 'slow' };
-    const result = ModelSchema.parse(model);
-    expect(result.tier).toBe('subscription');
-    expect(result.speed).toBe('slow');
-  });
-
-  it('should accept api tier', () => {
-    const model = { tier: 'api', speed: 'fast' };
-    const result = ModelSchema.parse(model);
-    expect(result.tier).toBe('api');
-  });
-
-  it('should reject invalid tier', () => {
-    const model = { tier: 'invalid', speed: 'slow' };
-    expect(() => ModelSchema.parse(model)).toThrow(ZodError);
-  });
-
-  it('should reject invalid speed', () => {
-    const model = { tier: 'subscription', speed: 'medium' };
-    expect(() => ModelSchema.parse(model)).toThrow(ZodError);
-  });
-});
-
 describe('ProfileSchema', () => {
   it('should validate a valid profile', () => {
     const result = ProfileSchema.parse(validProfile);
     expect(result.agent).toBe(validProfile.agent);
-    expect(result.model).toBe(validProfile.model);
     expect(result.memoryBlocks).toEqual(validProfile.memoryBlocks);
   });
 
-  it('should require agent, model, and memoryBlocks', () => {
+  it('should require agent and memoryBlocks', () => {
     expect(() => ProfileSchema.parse({})).toThrow(ZodError);
     expect(() => ProfileSchema.parse({ agent: 'test' })).toThrow(ZodError);
-    expect(() => ProfileSchema.parse({ agent: 'test', model: 'test' })).toThrow(ZodError);
   });
 
   it('should allow optional fields', () => {
     const minimalProfile = {
       agent: 'agent-test',
-      model: 'test-model',
       memoryBlocks: ['human'],
     };
     const result = ProfileSchema.parse(minimalProfile);
@@ -168,14 +126,12 @@ describe('ProjectConfigSchema', () => {
     const result = ProjectConfigSchema.parse({});
     expect(result.profile).toBeUndefined();
     expect(result.agent).toBeUndefined();
-    expect(result.model).toBeUndefined();
   });
 
   it('should accept full project config', () => {
     const fullConfig = {
       profile: 'custom',
       agent: 'agent-custom',
-      model: 'custom-model',
       memoryBlocks: ['human', 'persona'],
       inherits: 'default',
     };
