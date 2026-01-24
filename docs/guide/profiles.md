@@ -65,11 +65,12 @@ Create a `.letta-switch.json` in your project root:
 }
 ```
 
-| Field | Description |
-|-------|-------------|
-| `profile` | Named profile to use |
-| `agent` | Agent name override |
-| `memoryBlocks` | Memory blocks override |
-| `inherits` | Parent profile to inherit from |
+| Field          | Description                    |
+| -------------- | ------------------------------ |
+| `profile`      | Named profile to use           |
+| `agent`        | Agent name override            |
+| `memoryBlocks` | Memory blocks override         |
+| `inherits`     | Parent profile to inherit from |
 
-This configuration is automatically detected when running `letta-switch` in that directory.
+This configuration is automatically detected when running `letta-switch` in that
+directory.

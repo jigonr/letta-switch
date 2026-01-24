@@ -1,16 +1,21 @@
+# Pre-commit hooks for letta-switch (prek + biome via bun)
+# See https://prek.j178.dev for more information
+
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+  # prek builtin hooks (Rust, zero dependencies)
+  - repo: builtin
+    rev: '0'
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
       - id: check-json
-      - id: check-added-large-files
-        args: ['--maxkb=500']
       - id: check-merge-conflict
       - id: detect-private-key
+      - id: check-added-large-files
+        args: ['--maxkb=500']
 
+  # biome: JS/TS/JSON linting and formatting (via bun)
   - repo: local
     hooks:
       - id: biome-lint
@@ -34,9 +39,20 @@ repos:
         types: [ts]
         pass_filenames: false
 
-  - repo: https://github.com/compilerla/conventional-pre-commit
-    rev: v3.1.0
+  # Markdown formatting (dprint - Rust)
+  - repo: local
     hooks:
-      - id: conventional-pre-commit
+      - id: dprint-markdown
+        name: Format Markdown with dprint
+        entry: /Users/j.i.gonzalez-rojas/.dprint/bin/dprint fmt --incremental
+        language: system
+        types: [markdown]
+
+  # Conventional commits (commitlint-rs - Rust)
+  - repo: https://github.com/KeisukeYamashita/commitlint-rs
+    rev: v0.2.3
+    hooks:
+      - id: commitlint
         stages: [commit-msg]
-        args: [feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert]
+
+fail_fast: false

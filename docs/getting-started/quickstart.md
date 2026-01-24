@@ -2,7 +2,8 @@
 
 ## 1. Set Up Letta API Key
 
-letta-switch uses your existing Letta CLI configuration. If you haven't already, set up your API key:
+letta-switch uses your existing Letta CLI configuration. If you haven't already,
+set up your API key:
 
 ```bash
 letta config

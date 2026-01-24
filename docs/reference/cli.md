@@ -16,14 +16,14 @@ letta-switch [agent] [options]
 
 Launch an agent or display current profile status.
 
-| Option | Description |
-|--------|-------------|
-| `--profile <name>` | Use saved profile |
-| `--memory <blocks>` | Comma-separated memory blocks |
-| `--init-blocks <blocks>` | Comma-separated init blocks |
-| `--base-tools <tools>` | Comma-separated base tools |
-| `--save-as <name>` | Save configuration as a new profile |
-| `--json` | Output in JSON format |
+| Option                   | Description                         |
+| ------------------------ | ----------------------------------- |
+| `--profile <name>`       | Use saved profile                   |
+| `--memory <blocks>`      | Comma-separated memory blocks       |
+| `--init-blocks <blocks>` | Comma-separated init blocks         |
+| `--base-tools <tools>`   | Comma-separated base tools          |
+| `--save-as <name>`       | Save configuration as a new profile |
+| `--json`                 | Output in JSON format               |
 
 ### sync
 
@@ -33,8 +33,8 @@ Sync agents from Letta API.
 letta-switch sync [options]
 ```
 
-| Option | Description |
-|--------|-------------|
+| Option            | Description          |
+| ----------------- | -------------------- |
 | `--api-url <url>` | Custom Letta API URL |
 
 ### agents
@@ -45,11 +45,11 @@ List all synced agents. Alias: `list`
 letta-switch agents [options]
 ```
 
-| Option | Description |
-|--------|-------------|
-| `--json` | Output in JSON format |
+| Option             | Description                          |
+| ------------------ | ------------------------------------ |
+| `--json`           | Output in JSON format                |
 | `--search <query>` | Search agents by name or description |
-| `--tag <tag>` | Filter by tag |
+| `--tag <tag>`      | Filter by tag                        |
 
 ### profiles
 
@@ -59,8 +59,8 @@ List all saved profiles.
 letta-switch profiles [options]
 ```
 
-| Option | Description |
-|--------|-------------|
+| Option   | Description           |
+| -------- | --------------------- |
 | `--json` | Output in JSON format |
 
 ### save
@@ -71,11 +71,11 @@ Save a configuration as a named profile.
 letta-switch save <name> --agent <agent> --memory <blocks> [options]
 ```
 
-| Option | Description |
-|--------|-------------|
-| `--agent <name>` | Agent name (required) |
-| `--memory <blocks>` | Comma-separated memory blocks (required) |
-| `--description <desc>` | Profile description |
+| Option                 | Description                              |
+| ---------------------- | ---------------------------------------- |
+| `--agent <name>`       | Agent name (required)                    |
+| `--memory <blocks>`    | Comma-separated memory blocks (required) |
+| `--description <desc>` | Profile description                      |
 
 ### delete
 
@@ -101,8 +101,8 @@ Show detailed agent information.
 letta-switch info <agent> [options]
 ```
 
-| Option | Description |
-|--------|-------------|
+| Option   | Description           |
+| -------- | --------------------- |
 | `--json` | Output in JSON format |
 
 ### status
@@ -113,20 +113,20 @@ Show current configuration status.
 letta-switch status [options]
 ```
 
-| Option | Description |
-|--------|-------------|
+| Option   | Description           |
+| -------- | --------------------- |
 | `--json` | Output in JSON format |
 
 ## Global Options
 
-| Option | Description |
-|--------|-------------|
+| Option            | Description  |
+| ----------------- | ------------ |
 | `--version`, `-V` | Show version |
-| `--help`, `-h` | Show help |
+| `--help`, `-h`    | Show help    |
 
 ## Exit Codes
 
 | Code | Description |
-|------|-------------|
-| 0 | Success |
-| 1 | Error |
+| ---- | ----------- |
+| 0    | Success     |
+| 1    | Error       |

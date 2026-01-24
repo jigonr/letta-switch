@@ -8,7 +8,8 @@ Fetch agents from the Letta API:
 letta-switch sync
 ```
 
-This caches agent information locally in `~/.letta/letta-config.json` for faster access.
+This caches agent information locally in `~/.letta/letta-config.json` for faster
+access.
 
 To use a custom API URL:
 
@@ -59,6 +60,7 @@ letta-switch info my-agent
 ```
 
 Output includes:
+
 - Agent ID
 - Description
 - Created date

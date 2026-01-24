@@ -7,7 +7,8 @@
 
 ## Features
 
-- **🤖 Agent Management** - Sync, search, filter, and favorite agents from Letta API
+- **🤖 Agent Management** - Sync, search, filter, and favorite agents from Letta
+  API
 - **📋 Profile System** - Save and reuse agent+memory configurations
 - **🧠 Memory Blocks** - Configure custom memory block combinations
 - **📁 Project-Aware** - Auto-detect `.letta-switch.json` in projects
@@ -39,4 +40,5 @@ letta-switch my-agent
 
 ## License
 
-MIT License - see [LICENSE](https://github.com/jigonr/letta-switch/blob/main/LICENSE) for details.
+MIT License - see
+[LICENSE](https://github.com/jigonr/letta-switch/blob/main/LICENSE) for details.

@@ -35,21 +35,22 @@ letta-switch --profile dev-profile   # Launch using a profile
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `letta-switch [agent]` | Launch an agent (default) |
-| `letta-switch sync` | Sync agents from Letta API |
-| `letta-switch agents` | List all agents |
-| `letta-switch profiles` | List all profiles |
-| `letta-switch save <name>` | Save a new profile |
-| `letta-switch delete <name>` | Delete a profile |
-| `letta-switch favorite <agent>` | Set agent as favorite |
-| `letta-switch info <agent>` | Show agent details |
-| `letta-switch status` | Show current configuration |
+| Command                         | Description                |
+| ------------------------------- | -------------------------- |
+| `letta-switch [agent]`          | Launch an agent (default)  |
+| `letta-switch sync`             | Sync agents from Letta API |
+| `letta-switch agents`           | List all agents            |
+| `letta-switch profiles`         | List all profiles          |
+| `letta-switch save <name>`      | Save a new profile         |
+| `letta-switch delete <name>`    | Delete a profile           |
+| `letta-switch favorite <agent>` | Set agent as favorite      |
+| `letta-switch info <agent>`     | Show agent details         |
+| `letta-switch status`           | Show current configuration |
 
 ## Documentation
 
-Full documentation available at **[jigonzalez.com/letta-switch](https://jigonzalez.com/letta-switch/)**
+Full documentation available at
+**[jigonzalez.com/letta-switch](https://jigonzalez.com/letta-switch/)**
 
 - [Quick Start](https://jigonzalez.com/letta-switch/getting-started/quickstart/)
 - [Agents](https://jigonzalez.com/letta-switch/guide/agents/)

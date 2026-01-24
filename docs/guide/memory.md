@@ -4,13 +4,13 @@ Memory blocks configure what context is available to an agent.
 
 ## Available Memory Blocks
 
-| Block | Description |
-|-------|-------------|
-| `human` | Information about the user |
-| `persona` | Agent's personality and behavior |
-| `project` | Current project context |
-| `skills` | Available skills |
-| `loaded_skills` | Currently loaded skills |
+| Block           | Description                      |
+| --------------- | -------------------------------- |
+| `human`         | Information about the user       |
+| `persona`       | Agent's personality and behavior |
+| `project`       | Current project context          |
+| `skills`        | Available skills                 |
+| `loaded_skills` | Currently loaded skills          |
 
 ## Specifying Memory Blocks
 
@@ -36,4 +36,5 @@ letta-switch my-agent \
 
 ## Project Memory
 
-The `project` memory block is automatically populated based on the current working directory when a `.letta-switch.json` file exists.
+The `project` memory block is automatically populated based on the current
+working directory when a `.letta-switch.json` file exists.

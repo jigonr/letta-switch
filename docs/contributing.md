@@ -36,4 +36,5 @@ Use [Conventional Commits](https://www.conventionalcommits.org/):
 
 ## Issues
 
-Report bugs or request features at [GitHub Issues](https://github.com/jigonr/letta-switch/issues).
+Report bugs or request features at
+[GitHub Issues](https://github.com/jigonr/letta-switch/issues).

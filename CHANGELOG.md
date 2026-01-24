@@ -3,7 +3,8 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+and this project adheres to
+[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [0.2.0](https://github.com/jigonr/letta-switch/compare/letta-switch-v0.1.4...letta-switch-v0.2.0) (2026-01-06)
 
@@ -18,41 +19,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.4](https://github.com/jigonr/letta-switch/compare/letta-switch-v0.1.3...letta-switch-v0.1.4) (2026-01-04)
 
-
 ### Features
 
-* **ci:** add Claude Code workflows and yamllint config ([a4eae04](https://github.com/jigonr/letta-switch/commit/a4eae04fd27fb382d721109987c961eede2dd314))
-
+- **ci:** add Claude Code workflows and yamllint config
+  ([a4eae04](https://github.com/jigonr/letta-switch/commit/a4eae04fd27fb382d721109987c961eede2dd314))
 
 ### Bug Fixes
 
-* use 'ts' instead of 'typescript' for pre-commit types ([37e6cd5](https://github.com/jigonr/letta-switch/commit/37e6cd56ed918e2501950875edb820fe8f2f91ad))
+- use 'ts' instead of 'typescript' for pre-commit types
+  ([37e6cd5](https://github.com/jigonr/letta-switch/commit/37e6cd56ed918e2501950875edb820fe8f2f91ad))
 
 ## [0.1.3](https://github.com/jigonr/letta-switch/compare/letta-switch-v0.1.2...letta-switch-v0.1.3) (2026-01-03)
 
-
 ### Bug Fixes
 
-* read version dynamically from package.json ([d448018](https://github.com/jigonr/letta-switch/commit/d4480182acf2289784da09d96c97a605eccfe938))
+- read version dynamically from package.json
+  ([d448018](https://github.com/jigonr/letta-switch/commit/d4480182acf2289784da09d96c97a605eccfe938))
 
 ## [0.1.2](https://github.com/jigonr/letta-switch/compare/letta-switch-v0.1.1...letta-switch-v0.1.2) (2026-01-03)
 
-
 ### Bug Fixes
 
-* remove prepare script to fix npm publish ([ffbf957](https://github.com/jigonr/letta-switch/commit/ffbf9575fd537b388d9d8e49db897ea1a4da85e0))
+- remove prepare script to fix npm publish
+  ([ffbf957](https://github.com/jigonr/letta-switch/commit/ffbf9575fd537b388d9d8e49db897ea1a4da85e0))
 
 ## [0.1.1](https://github.com/jigonr/letta-switch/compare/letta-switch-v0.1.0...letta-switch-v0.1.1) (2026-01-03)
 
-
 ### Features
 
-* configure publishing to GitHub Packages ([7d431fd](https://github.com/jigonr/letta-switch/commit/7d431fd4197b0c6f21e35983170832cbc5dd9aa0))
-
+- configure publishing to GitHub Packages
+  ([7d431fd](https://github.com/jigonr/letta-switch/commit/7d431fd4197b0c6f21e35983170832cbc5dd9aa0))
 
 ### Bug Fixes
 
-* **ci:** remove invalid yaml document separator from release-please workflow ([993182b](https://github.com/jigonr/letta-switch/commit/993182b8bad6d586606ab34a8e4a3754b29d764b))
+- **ci:** remove invalid yaml document separator from release-please workflow
+  ([993182b](https://github.com/jigonr/letta-switch/commit/993182b8bad6d586606ab34a8e4a3754b29d764b))
 
 ## [Unreleased]
 

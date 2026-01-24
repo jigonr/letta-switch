@@ -6,18 +6,19 @@
 letta-switch [agent] [options]
 ```
 
-Launches an agent with optional memory configuration. When run without arguments, shows the current profile status.
+Launches an agent with optional memory configuration. When run without
+arguments, shows the current profile status.
 
 ### Options
 
-| Option | Description |
-|--------|-------------|
-| `--profile <name>` | Use a saved profile |
-| `--memory <blocks>` | Memory blocks to include (comma-separated) |
-| `--init-blocks <blocks>` | Init blocks to include (comma-separated) |
-| `--base-tools <tools>` | Base tools to include (comma-separated) |
-| `--save-as <name>` | Save configuration as a new profile |
-| `--json` | Output in JSON format |
+| Option                   | Description                                |
+| ------------------------ | ------------------------------------------ |
+| `--profile <name>`       | Use a saved profile                        |
+| `--memory <blocks>`      | Memory blocks to include (comma-separated) |
+| `--init-blocks <blocks>` | Init blocks to include (comma-separated)   |
+| `--base-tools <tools>`   | Base tools to include (comma-separated)    |
+| `--save-as <name>`       | Save configuration as a new profile        |
+| `--json`                 | Output in JSON format                      |
 
 ### Examples
 
@@ -43,7 +44,8 @@ Sync agents from the Letta API.
 letta-switch sync [--api-url <url>]
 ```
 
-Fetches all agents associated with your Letta account and caches them locally in `~/.letta/letta-config.json`.
+Fetches all agents associated with your Letta account and caches them locally in
+`~/.letta/letta-config.json`.
 
 ## agents
 
@@ -55,11 +57,11 @@ letta-switch agents [options]
 
 ### Options
 
-| Option | Description |
-|--------|-------------|
-| `--json` | Output in JSON format |
+| Option             | Description                          |
+| ------------------ | ------------------------------------ |
+| `--json`           | Output in JSON format                |
 | `--search <query>` | Search agents by name or description |
-| `--tag <tag>` | Filter by tag |
+| `--tag <tag>`      | Filter by tag                        |
 
 ### Examples
 
@@ -124,7 +126,8 @@ Show detailed agent information.
 letta-switch info <agent> [--json]
 ```
 
-Displays: ID, description, created date, tags, favorite status, last launched time, and available memory blocks.
+Displays: ID, description, created date, tags, favorite status, last launched
+time, and available memory blocks.
 
 ## status
 
@@ -134,4 +137,5 @@ Show current configuration status.
 letta-switch status [--json]
 ```
 
-Displays: current profile, total agents count, total profiles count, and last sync time.
+Displays: current profile, total agents count, total profiles count, and last
+sync time.
